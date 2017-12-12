@@ -734,7 +734,8 @@ public class T548AutoNew extends LinearOpMode {
         rr.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         lr.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rf.setDirection(DcMotor.Direction.REVERSE);
-        lr.setDirection(DcMotor.Direction.REVERSE);
+        //lr.setDirection(DcMotor.Direction.REVERSE);
+        rr.setDirection(DcMotor.Direction.REVERSE);
 
 
         // set power to zero to avoid a FTC bug
@@ -840,14 +841,15 @@ public class T548AutoNew extends LinearOpMode {
     //Put Glyph into box
     private void Touchdown() throws InterruptedException {
         DriveForwardByTime(0.5,1000);
+        sleep(100)
         TurnLeftByTime(0.5,950 );
-        DriveBackwardByTime(0.5,600);
-        sleep(2000);
         claspGlyph();
+        sleep(500)
+        DriveBackwardByTime(0.5,600);
         sleep(500);
         DriveForwardByTime(0.5,500);
         sleep(1000);
-        DriveBackwardByTime(0.5,500);
+        DriveBackwardByTime(0.5,600);
 
     }
     // Team 548 Autonomous main program
@@ -864,6 +866,7 @@ public class T548AutoNew extends LinearOpMode {
         ReadColor();
         sleep(2000);
         color.setPosition(0);
+        Touchdown():
        /* PickUpGlyph(0.2);
         if(blueTeam){
             DriveForwardByTime(0.2,1000);
